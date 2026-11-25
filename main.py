@@ -14,6 +14,9 @@ JOKE = (
 
 
 def main():
+    # Gate mirrors the competition's 1-200 char one-line requirement:
+    # fail loudly instead of writing an empty/oversized joke.
+    assert 1 <= len(JOKE) <= 200 and JOKE.strip(), "JOKE must be 1-200 non-blank characters"
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8", newline="") as f:
         f.write(JOKE)
